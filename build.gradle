@@ -44,6 +44,36 @@ hibernate {
 	}
 }
 
+
+// graalvm configurations
+graalvmNative {
+     binaries {
+         main {
+             javaLauncher = javaToolchains.launcherFor {
+                 languageVersion = JavaLanguageVersion.of(17)
+                 vendor = JvmVendorSpec.matching("GraalVM Community")
+             }
+         }
+     }
+ }
+
+ graalvmNative {
+     binaries.all {
+         resources.autodetect()
+     }
+     toolchainDetection = false
+ }
+
+// graalvmNative {
+//     binaries {
+//         main {
+//             imageName = 'adventure_works_search'
+//             mainClass = 'com.example.AdventureWorksSearchApplication'  // Replace with your actual main class
+//             buildArgs = ['--no-fallback']
+//         }
+//     }
+// }
+
 tasks.named('test') {
 	useJUnitPlatform()
 }

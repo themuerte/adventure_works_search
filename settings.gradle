@@ -4,4 +4,6 @@ pluginManagement {
 		gradlePluginPortal()
 	}
 }
+
 rootProject.name = 'adventure_works_search'
+include('fortune')
